@@ -1,5 +1,7 @@
 # The Flashbots fake biding strategy
 
+
+
 **Requirments**:
 - web3.py
 - brownie
@@ -42,3 +44,8 @@ Fake bidding will clearly decrease the miners' revenue and other searchers' reve
 
 To prove the assumption that bundles are simulated once, we made the following. We deployed a smart contract in Goerli network with two functions, \texttt{RandomBid} and **NotRandomBid**. To execute the functions, both require that a variable $\texttt{bool}$ is True, otherwise the transaction reverts. Once executed, the functions change **bool** to False. Therefore, both transactions conflict. The function **NotRandomBid** pay the 0.0015 of Goerli ETH. While the **RandomBid** function bids 0.003 or 0(To be sure that both transaction were not rejected by the Flashbots relayer, we made more operations to at least expend 42000 gweis). We repeated this experiment $128$, landing a total of $55$ **RandomBid** and $73$ **NonRandomBid**. The $55$ **RandomBid**, $32$ were bidding the minimum. Therefore, we obtain that the $25\%$ the random bid strategy outbid the normal one but with less ex-post effective gas price.
 
+Goerli network:
+Contract= 0x87D8B355b2a2dc16bD3846063c074Ca3e4378064
+
+# Note
+Current design of Flashbots is strong against this particular strategy. We make this public for other builders to not fall to this strategies.
