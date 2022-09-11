@@ -49,3 +49,6 @@ Contract= 0x87D8B355b2a2dc16bD3846063c074Ca3e4378064
 
 # Note
 Current design of Flashbots is strong against this particular strategy. We make this public for other builders to not fall to this strategies.
+
+# Comments
+More details in Grim brothers report.
