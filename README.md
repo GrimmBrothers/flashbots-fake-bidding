@@ -9,7 +9,7 @@
 
 
 
-Flashbots relayer can simulate bundles in order to construct the most proftible bundles. However, there is a 
+Flashbots relayer can simulate bundles in order to construct the most proftible bundles. However, 
 there is a potential difference between the simulation and the execution payoff. Since Flashbots can not predict the special variables of next block, it can not ensure the exactly payoff of each bundle, and so, the payoff of the block.
 
 **Motivational example**: Let $B_1$ and $B_2$ be two conflicting bundles that extract an MEV opportunity of value $4$ eth. The block.coinbase of the first bundle is $2$ eth. However, the block.coinbase of the second bundle is probabilistic. If block.timestamp $\equiv 1\pmod{2}$ it pays $0.1$ eth. Otherwise it pays $2+\varepsilon$ eth. If the Flahbots relayer makes a unique total block simulation, then he will choose $B_1$ with probability $1/2$, and $B_2$ with probability $1/2$. The expected payoff of the first player is $1$ since he has $1/2$ probability of winning and the total profit is $2$. On the other hand, the second player has a expected profit of $\approx 2$. 
